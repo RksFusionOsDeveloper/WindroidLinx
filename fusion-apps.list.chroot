@@ -1,0 +1,25 @@
+# Wayland Desktop Environment (Required for Waydroid)
+task-kde-desktop
+plasma-workspace-wayland
+sddm
+
+# Linux App Ecosystems (Flatpak & AppImage support)
+flatpak
+plasma-discover-backend-flatpak
+libfuse2t64
+
+# Windows App Compatibility (Wine + Winetricks + Vulkan)
+wine
+wine64
+winetricks
+cabextract
+vulkan-tools
+mesa-vulkan-drivers
+
+# Container & Kernel Support for Waydroid (Android)
+curl
+ca-certificates
+python3
+lxc
+iptables
+dnsmasq
