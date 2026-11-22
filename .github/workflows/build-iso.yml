@@ -24,12 +24,12 @@ jobs:
       - name: Install Debian live-build tools
         env:
           DEBIAN_FRONTEND: noninteractive
-        run: |
+       run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends live-build debootstrap xorriso squashfs-tools
 
-      -       - name: Build Fusion OS live ISO
-           run: |
+      - name: Build Fusion OS live ISO
+        run: |
           # 1. Strip Windows CRLF line endings safely
           find . -type f \( -name "*.sh" -o -path "./auto/*" -o -path "./config/*" \) -exec sed -i 's/\r$//' {} +
 
