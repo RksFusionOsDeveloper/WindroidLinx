@@ -28,20 +28,19 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends live-build debootstrap xorriso squashfs-tools
 
-      - name: Build Fusion OS live ISO
-  run: |
-    # 1. Strip Windows CRLF line endings safely
-    find . -type f \( -name "*.sh" -o -path "./auto/*" -o -path "./config/*" \) -exec sed -i 's/\r$//' {} +
+      -       - name: Build Fusion OS live ISO
+           run: |
+          # 1. Strip Windows CRLF line endings safely
+          find . -type f \( -name "*.sh" -o -path "./auto/*" -o -path "./config/*" \) -exec sed -i 's/\r$//' {} +
 
-    # 2. Safely make scripts executable (ignores missing/empty directories)
-    find . -type f -name "*.sh" -exec chmod +x {} +
-    [ -d "auto" ] && find auto -type f -exec chmod +x {} +
-    [ -d "config/hooks/live" ] && find config/hooks/live -type f -exec chmod +x {} +
+          # 2. Safely make scripts executable (ignores missing/empty directories)
+          find . -type f -name "*.sh" -exec chmod +x {} +
+          [ -d "auto" ] && find auto -type f -exec chmod +x {} +
+          [ -d "config/hooks/live" ] && find config/hooks/live -type f -exec chmod +x {} +
 
-    # 3. Proceed with your live-build commands
-    # lb config ...
-    # lb build ...
-
+          # 3. Proceed with your live-build commands
+          # lb config ...
+          # lb build ...
 
       - name: Verify ISO output
         run: |
