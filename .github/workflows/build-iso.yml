@@ -39,7 +39,10 @@ jobs:
           [ -d "config/hooks/live" ] && find config/hooks/live -type f -exec chmod +x {} +
 
           # 3. Proceed with your live-build commands
-          # lb config ...
+          # lb config \
+               --linux-packages "linux-image" \
+               --linux-flavours "amd64"
+             ...
           # lb build ...
 
       - name: Verify ISO output
